@@ -37,5 +37,6 @@ async def delete_user(user_dni: str = Path(..., alias="id")):
 
 @router.put(path="/{id}", response_model=ResponseSchema, response_model_exclude_none=True)
 async def update_user(user_dni: str = Path(..., alias="id"), *, data: User):
+    data.password = sha256_crypt.encrypt(data.password)
     await UserRoutes.update(data, user_dni)
     return ResponseSchema(detail="Successfully updated")

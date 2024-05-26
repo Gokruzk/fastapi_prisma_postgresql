@@ -6,19 +6,17 @@ REST API made with FastAPI, PrismaORM and PostgreSQL for register users.
 
 Use the package manager [pip](https://pip.pypa.io/en/stable/) to install the requirements.
 
-```bash
+```
 pip install -r requirements.txt
 ```
 ## Database
 
-Schema: public
-Database: users_crud
+Schema: public  
+Database: users_crud  
 
-+-------------------+       
-|     usuario       |      
-+-------------------+      
-| dni (PK)          |
-| name              |       
-| email             |      
-| password	        |      
-+-------------------+   
+| users_   | Types         |
+|----------|---------------|
+| dni (PK) | CHAR(10)      |
+| name     | VARCHAR(100)  |
+| email    | VARCHAR(50)   |
+| password | VARCHAR(300)  |

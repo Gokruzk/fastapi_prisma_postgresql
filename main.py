@@ -2,6 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 from Config.db import conn
+from Controller import user
 
 
 def init_app():
@@ -22,6 +23,8 @@ def init_app():
     @app.get("/")
     def home():
         return "Welcome Home!"
+
+    app.include_router(user.router)
 
     return app
 

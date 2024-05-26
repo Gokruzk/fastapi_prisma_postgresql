@@ -6,10 +6,10 @@ class PrismaConnection():
         self.prisma = Prisma()
 
     async def connect(self):
-        self.prisma.connect()
+        await self.prisma.connect()
 
     async def disconnect(self):
-        self.prisma.disconnect()
+        await self.prisma.disconnect()
 
 
 conn = PrismaConnection()

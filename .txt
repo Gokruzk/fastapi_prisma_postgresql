@@ -1,0 +1,2 @@
+prisma generate dev --name "init table"
+prisma generate

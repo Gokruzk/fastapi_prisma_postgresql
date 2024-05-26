@@ -23,19 +23,19 @@ async def create_user(data: User):
     return ResponseSchema(detail="Successfully created")
 
 
-@router.get(path="{id}", response_model=ResponseSchema, response_model_exclude_none=True)
+@router.get(path="/{id}", response_model=ResponseSchema, response_model_exclude_none=True)
 async def get_by_dni(user_dni: str = Path(..., alias="id")):
     data = await UserRoutes.get_by_dni(user_dni)
     return ResponseSchema(detail="Successfully retrieved", result=data)
 
 
-@router.delete(path="{id}", response_model=ResponseSchema, response_model_exclude_none=True)
+@router.delete(path="/{id}", response_model=ResponseSchema, response_model_exclude_none=True)
 async def delete_user(user_dni: str = Path(..., alias="id")):
     await UserRoutes.delete(user_dni)
     return ResponseSchema(detail="Successfully deleted")
 
 
-@router.put(path="{id}", response_model=ResponseSchema, response_model_exclude_none=True)
+@router.put(path="/{id}", response_model=ResponseSchema, response_model_exclude_none=True)
 async def update_user(user_dni: str = Path(..., alias="id"), *, data: User):
     await UserRoutes.update(data, user_dni)
     return ResponseSchema(detail="Successfully updated")

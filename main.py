@@ -1,16 +1,17 @@
 import uvicorn
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
+from Config.db import conn
 
 
 def init_app():
     @asynccontextmanager
     async def lifespan(app: FastAPI):
         print("Server started")
-        # await connect
+        await conn.connect()
         yield
         print("Shutdown server")
-        # await disconnect
+        await conn.disconnect()
     app = FastAPI(
         title="Nigell Marcel Jama Oyarvide",
         description="FastAPI Prisma",

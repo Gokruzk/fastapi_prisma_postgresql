@@ -14,8 +14,8 @@ def init_app():
         print("Shutdown server")
         await conn.disconnect()
     app = FastAPI(
-        title="Nigell Marcel Jama Oyarvide",
-        description="FastAPI Prisma",
+        title="Gokruzk",
+        description="FastAPI Prisma PostgreSQL",
         version="1.0.0",
         lifespan=lifespan
     )
